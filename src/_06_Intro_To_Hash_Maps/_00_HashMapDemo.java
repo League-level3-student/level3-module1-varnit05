@@ -25,8 +25,7 @@ public class _00_HashMapDemo {
 		System.out.println("\nAll the keys:");
 		for(Integer i : studentRoster.keySet()){
 			System.out.println(i);
-		}
-		
+	
 		System.out.println(Math.sqrt(3));
 	}
 }
