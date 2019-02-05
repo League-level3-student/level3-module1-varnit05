@@ -28,7 +28,7 @@ public class _03_MurderOfCrows {
 		 * stomach of each Crow, then print the name of the guilty Crow.
 		 */for (int i = 0; i < theMurder.size(); i++) {
 			ArrayList<String> guilty = theMurder.get(i).getStomachContents();
-			for (int l = 0; i < guilty.size; i++) {
+			for (int l = 0; i < guilty.size(); i++) {
 
 			}
 
