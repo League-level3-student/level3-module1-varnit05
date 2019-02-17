@@ -1,5 +1,7 @@
 package _00_Dynamic_Integer_Array;
 
+import java.lang.reflect.Array;
+
 public class DynamicIntegerArray {
 	// 1. Create a private int array. Don't initialize it.
 	private int[] integer;
@@ -42,12 +44,16 @@ public class DynamicIntegerArray {
 	public void set(int v, int location) {
 		// A. set the variable at the location passed in to the method
 		// to the new value v
+		integer[location] = (v);
 	}
 
 	// 7. Complete the steps in the insert method
 	public void insert(int v, int location) {
 		// A. create and initialize a new int array to be one
 		// element longer than the member array
+		private int [] yes;
+		yes = new int(integer+1);
+
 
 		// B. Make a for loop that iterates through the new array
 

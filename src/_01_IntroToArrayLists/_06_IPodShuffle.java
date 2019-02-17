@@ -31,11 +31,11 @@ public class _06_IPodShuffle {
 		JButton but = new JButton();
 		new _06_IPodShuffle();
 		ArrayList<Song> sickbeats = new ArrayList<Song>();
-		frame.add(but);
+		frame.add(panel);
+		panel.add(but);
 		frame.setSize(800, 800);
 		but.setText("Suprise Me !");
 		frame.setVisible(true);
 		frame.pack();
-
 	}
 }

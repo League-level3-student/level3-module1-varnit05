@@ -24,7 +24,10 @@ public class _02_GuestBook implements ActionListener {
 	JFrame frame;
 	JPanel panel;
 	JButton but1;
-	JButton but2;ArrayList<String> 
+	JButton but2;
+	ArrayList<String> name = new ArrayList<String>();
+	
+	
 	void createUi() {
 		frame = new JFrame();
 		panel = new JPanel();
@@ -39,19 +42,30 @@ public class _02_GuestBook implements ActionListener {
 		frame.pack();
 		but1.addActionListener(this);
 		but2.addActionListener(this);
+	
 	}
 
 	public static void main(String[] args) {
+
 		new _02_GuestBook().createUi();
+	
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+	
 		if (e.getSource() == but1) {
-			JOptionPane.showInputDialog("type a name");
+			String v = JOptionPane.showInputDialog("type a name");
+			name.add(v);
+			 
+			 
 		} else if (e.getSource() == but2) {
 
+			 for (int i = 0; i < name.size(); i++) {
+				 int u = i + 1;
+				 JOptionPane.showMessageDialog(null," guest #" + (u) +" " + name.get(i) );
+				}
 		}
 	}
 
