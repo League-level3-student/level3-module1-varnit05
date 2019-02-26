@@ -37,5 +37,6 @@ public class _06_IPodShuffle {
 		but.setText("Suprise Me !");
 		frame.setVisible(true);
 		frame.pack();
+		sickbeats.add(e)
 	}
 }
