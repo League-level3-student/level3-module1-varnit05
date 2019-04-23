@@ -14,7 +14,8 @@ public class HangMan implements KeyListener {
 	JPanel panel;
 	JLabel label;
 	Stack<String> randomStack = new Stack<String>();
-
+	String popped;
+	String blanks;
 
 	public static void main(String[] args) {
 		new HangMan().createUI();
@@ -32,19 +33,30 @@ public class HangMan implements KeyListener {
 		frame.setSize(800, 800);
 		frame.setVisible(true);
 		frame.pack();
-		
+
 		String wordNum = JOptionPane.showInputDialog("type a number in between 1-266");
 		int word = Integer.parseInt(wordNum);
-		
+
 		for (int i = word; i > 0; i--) {
-		randomStack.push( readRandomLineFromFile("dictionary.txt"));
+			randomStack.push(Utilities.readRandomLineFromFile("dictionary.txt"));
 		}
-		randomStack.pop(wordNum.length()-1)
+		popped = randomStack.pop();
+
+		blanks = "";
+
+		for (int i = 0; i < popped.length(); i++) {
+			blanks += "_";
+
+		}
+		label.setText(blanks);
+		System.out.println(popped);
+
 	}
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

@@ -45,8 +45,7 @@ public class _05_LongChipCompetition {
 		theBeatles.add(paul);
 		theBeatles.add(ringo);
 	}
-	
-	public ArrayList<Beatle> getTheBand(){
+		public ArrayList<Beatle> getTheBand(){
 		return theBeatles;
 	}
 }
