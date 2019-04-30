@@ -16,6 +16,7 @@ public class HangMan implements KeyListener {
 	Stack<String> randomStack = new Stack<String>();
 	String popped;
 	String blanks;
+	
 
 	public static void main(String[] args) {
 		new HangMan().createUI();
@@ -56,7 +57,18 @@ public class HangMan implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder (blanks);
+		for (int i = 0; i < popped.length(); i++) {
+			
 		
+		if (e.getKeyChar()== popped.charAt(i)) {
+			sb.setCharAt(i, e.getKeyChar());
+			label.setText(sb.toString());
+			
+			
+		}
+		
+		}
 	}
 
 	@Override
