@@ -2,6 +2,7 @@ package _04_HangMan;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import javax.swing.JFrame;
@@ -16,8 +17,9 @@ public class HangMan implements KeyListener {
 	Stack<String> randomStack = new Stack<String>();
 	String popped;
 	String blanks;
-	int lives;
-	
+	int lives = 10;
+	ArrayList<Character> wrong = new ArrayList<Character>();
+	ArrayList<Character> right = new ArrayList<Character>();
 
 	public static void main(String[] args) {
 		new HangMan().createUI();
@@ -58,19 +60,24 @@ public class HangMan implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		lives = 10;
-		StringBuilder sb = new StringBuilder (blanks);
+
+		StringBuilder sb = new StringBuilder(blanks);
 		for (int i = 0; i < popped.length(); i++) {
-			
-		
-		if (e.getKeyChar()== popped.charAt(i)) {
-			sb.setCharAt(i, e.getKeyChar());
-			label.setText(sb.toString());
-			blanks=label.getText();
-			
-			
-		}
-		
+
+			if (e.getKeyChar() == popped.charAt(i)) {
+				sb.setCharAt(i, e.getKeyChar());
+				label.setText(sb.toString());
+				blanks = label.getText();
+				right.add(e.getKeyChar());
+			} else if (e.getKeyChar() != popped.charAt(i)) {
+
+				if (!wrong.contains(e.getKeyChar()) && (!right.contains(e.getKeyChar()))) {
+					wrong.add(e.getKeyChar());
+					lives -= 1;
+					System.out.println("You have" + lives + "lives" + "left ");
+				}
+
+			}
 		}
 	}
 
