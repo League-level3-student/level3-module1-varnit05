@@ -19,7 +19,7 @@ public class HangMan implements KeyListener {
 	String blanks;
 	int lives = 10;
 	ArrayList<Character> wrong = new ArrayList<Character>();
-	ArrayList<Character> right = new ArrayList<Character>();
+	
 
 	public static void main(String[] args) {
 		new HangMan().createUI();
@@ -34,7 +34,7 @@ public class HangMan implements KeyListener {
 		panel.add(label);
 
 		frame.addKeyListener((KeyListener) this);
-		frame.setSize(800, 800);
+		frame.setSize(2000, 2000);
 		frame.setVisible(true);
 		frame.pack();
 
@@ -53,32 +53,39 @@ public class HangMan implements KeyListener {
 
 		}
 		label.setText(blanks);
-		System.out.println(popped);
-
+	
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-		StringBuilder sb = new StringBuilder(blanks);
+		StringBuilder sb = new StringBuilder(label.getText());
+		boolean found = false;
 		for (int i = 0; i < popped.length(); i++) {
 
 			if (e.getKeyChar() == popped.charAt(i)) {
 				sb.setCharAt(i, e.getKeyChar());
-				label.setText(sb.toString());
-				blanks = label.getText();
-				right.add(e.getKeyChar());
-			} else if (e.getKeyChar() != popped.charAt(i)) {
-
-				if (!wrong.contains(e.getKeyChar()) && (!right.contains(e.getKeyChar()))) {
-					wrong.add(e.getKeyChar());
-					lives -= 1;
-					System.out.println("You have" + lives + "lives" + "left ");
-				}
-
+				found=true;
 			}
+			
+
+			
 		}
+		if(!found) {
+
+
+				wrong.add(e.getKeyChar());
+				lives -= 1;
+				JOptionPane.showMessageDialog(null,"You have" + lives + "lives" + "left ");
+		
+		}
+		if (lives == 0) {
+			JOptionPane.showMessageDialog(null, "Game over");
+			
+			
+		}
+		label.setText(sb.toString());
 	}
 
 	@Override
